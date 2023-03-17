@@ -13,10 +13,10 @@ int main(int argc, char** argv)
 	string check_path = "D:/target_data2.csv";
 	DataLoader loader1(base_path);
 	loader1.Load();
-
+        // 读取文件1
 	DataLoader loader2(check_path);
 	loader2.Load();
-
+        // 定义文件1各列的数据类型
 	DataFormat formater(loader1.data);
 	formater.define_column_type("column_1", "int");
 	formater.define_column_type("column_2", "str");
@@ -32,7 +32,7 @@ int main(int argc, char** argv)
 	formater2.define_column_type("column_4", "double");
 
 	formater2.format();
-
+        // 进行数据对比
 	Validator valider(formater.result, formater2.result);
 	valider.validate();
 	valider.show_result();
